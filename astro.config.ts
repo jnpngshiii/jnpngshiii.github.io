@@ -29,7 +29,7 @@ export default defineConfig({
                 {
                     aliasDivider: '|',
                     pageResolver: (name: String) => [name.replace(/ /g, '-').toLowerCase()],
-                    hrefTemplate: (permalink: String) => `/posts/${permalink.replace('#', '/#')}`,
+                    hrefTemplate: (permalink: String) => `/post/${permalink.replace('#', '/#')}`,
                 }
 
             ],
