@@ -15,27 +15,27 @@
         "#a7c080", // Green
         "#7fbbb3", // Blue
         "#83c092", // Aqua
-        "#d699b6"  // Purple
+        "#d699b6", // Purple
     ];
 
-	function getRandomColor() {
-		return colors[Math.floor(Math.random() * colors.length)];
-	}
+    function getRandomColor() {
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
 
-	function setRandomLinkColor() {
-		Array.from(document.getElementsByTagName("a")).forEach((e) => {
-			e.style.textDecorationColor = getRandomColor();
-		});
-	}
+    function setRandomLinkColor() {
+        Array.from(document.getElementsByTagName("a")).forEach((e) => {
+            e.style.textDecorationColor = getRandomColor();
+        });
+    }
 
-	function setColorHoverListener() {
-		Array.from(document.querySelectorAll("a, button")).forEach((e) => {
-			e.addEventListener("mouseover", setRandomLinkColor);
-		});
-	}
+    function setColorHoverListener() {
+        Array.from(document.querySelectorAll("a, button")).forEach((e) => {
+            e.addEventListener("mouseover", setRandomLinkColor);
+        });
+    }
 
-	(function () {
-		setRandomLinkColor();
-		setColorHoverListener();
-	})();
+    (function () {
+        setRandomLinkColor();
+        setColorHoverListener();
+    })();
 </script>
