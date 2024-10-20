@@ -16,7 +16,14 @@ export default defineConfig({
         },
 
         remarkPlugins: [
-            remarkToc,
+            [
+                remarkToc,
+                {
+                    heading: '目录',
+                    maxDepth: 3,
+                }
+
+            ],
             [
                 remarkWikiLink,
                 {
