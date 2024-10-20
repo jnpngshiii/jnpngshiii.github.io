@@ -11,7 +11,7 @@ export default defineConfig({
     integrations: [sitemap()],
     markdown: {
         shikiConfig: {
-            theme: "rose-pine-dawn",
+            theme: "rose-pine-moon",
             langs: [],
         },
 
