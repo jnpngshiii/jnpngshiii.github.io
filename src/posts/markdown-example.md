@@ -57,15 +57,15 @@ V franzen umami hammock scenester retro VHS, pop-up truffaut tacos polaroid heir
 // This is an example of some React
 
 useEffect(() => {
-	let isCurrent = true;
+  let isCurrent = true;
 
-	if (isCurrent === true) {
-		fetch("...");
-	}
+  if (isCurrent === true) {
+    fetch("...");
+  }
 
-	return () => {
-		isCurrent = false;
-	};
+  return () => {
+    isCurrent = false;
+  };
 }, []);
 ```
 
@@ -76,11 +76,11 @@ useEffect(() => { // wow
   let isCurrent = true;
 
   if (isCurrent === true) {
-  	fetch('...')
+   fetch('...')
   }
 
   return () => {
-  	isCurrent = false;
+   isCurrent = false;
   }
 }, [])
 ```
