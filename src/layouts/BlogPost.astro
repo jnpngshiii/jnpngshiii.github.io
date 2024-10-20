@@ -13,24 +13,10 @@ let {
 	content: { title, description, added, updated, tags, heroImage },
 } = Astro.props;
 
-added = new Date(added).toLocaleDateString(
-	"en-us",
-	{
-		year: "numeric",
-		month: "short",
-		day: "numeric",
-	}
-);
+added = new Date(added).toISOString().slice(0, 10)
 
 if (updated) {
-	updated = new Date(updated).toLocaleDateString(
-		"en-us",
-		{
-			year: "numeric",
-			month: "short",
-			day: "numeric",
-		}
-	);
+	updated = new Date(updated).toISOString().slice(0, 10)
 }
 ---
 
