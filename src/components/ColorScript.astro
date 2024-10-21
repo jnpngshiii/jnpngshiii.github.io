@@ -28,9 +28,72 @@
         });
     }
 
+    function createPreviewBox() {
+        const previewBox = document.createElement("div");
+        previewBox.className = "preview-box";
+        document.body.appendChild(previewBox);
+        return previewBox;
+    }
+
+    async function fetchContent(href) {
+        const response = await fetch(href);
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const content = doc.querySelector(".blog-post");
+        if (content) {
+            const titleElement = content.querySelector(
+                "h1, h2, h3, h4, h5, h6",
+            );
+            if (titleElement) {
+                let preview = titleElement.outerHTML;
+                let nextElement = titleElement.nextElementSibling;
+                while (
+                    nextElement &&
+                    !nextElement.matches("h1, h2, h3, h4, h5, h6")
+                ) {
+                    preview += nextElement.outerHTML;
+                    nextElement = nextElement.nextElementSibling;
+                }
+                return preview;
+            }
+        }
+        return null;
+    }
+
+    function showPreview(e, previewBox) {
+        const href = e.getAttribute("href");
+        if (href && href.startsWith("/post/")) {
+            fetchContent(href).then((content) => {
+                if (content) {
+                    previewBox.innerHTML = content;
+                    previewBox.style.display = "block";
+                    const rect = e.getBoundingClientRect();
+                    const scrollX = window.scrollX || window.pageXOffset;
+                    const scrollY = window.scrollY || window.pageYOffset;
+                    previewBox.style.left = `${rect.right + scrollX}px`;
+                    previewBox.style.top = `${rect.top + scrollY}px`;
+                }
+            });
+        }
+    }
+
+    function hidePreview(previewBox) {
+        previewBox.style.display = "none";
+    }
+
     function setColorHoverListener() {
-        Array.from(document.querySelectorAll("a, button")).forEach((e) => {
-            e.addEventListener("mouseover", setRandomLinkColor);
+        // const previewBox = createPreviewBox();
+        Array.from(
+            document.querySelectorAll(".blog-post a, .content a"),
+        ).forEach((e) => {
+            e.addEventListener("mouseover", () => {
+                // showPreview(e, previewBox);
+            });
+            e.addEventListener("mouseout", () => {
+                hidePreview(previewBox);
+                // setRandomLinkColor();
+            });
         });
     }
 
