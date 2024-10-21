@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
+import remarkHtml from 'remark-html';
 import remarkToc from "remark-toc";
 import remarkWikiLink from 'remark-wiki-link';
 
-// https://astro.build/config
 export default defineConfig({
     site: "https://jnpngshiii.github.io/",
     base: "/",
@@ -16,6 +16,7 @@ export default defineConfig({
         },
 
         remarkPlugins: [
+            remarkHtml,
             [
                 remarkToc,
                 {
