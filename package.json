@@ -17,7 +17,9 @@
         "prettier-plugin-astro": "^0.14.1"
     },
     "dependencies": {
+        "remark-html": "^16.0.1",
         "remark-toc": "^9.0.0",
-        "remark-wiki-link": "^2.0.1"
+        "remark-wiki-link": "^2.0.1",
+        "unist-util-visit": "^5.0.0"
     }
 }
