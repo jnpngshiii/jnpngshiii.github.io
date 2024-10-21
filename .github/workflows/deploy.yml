@@ -16,8 +16,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout your repository with submodules using git
         uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.PAT }}
+
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
