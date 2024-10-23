@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import remarkHtml from 'remark-html';
 import remarkToc from "remark-toc";
 import remarkWikiLink from 'remark-wiki-link';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 export default defineConfig({
     site: "https://jnpngshiii.github.io/",
@@ -35,5 +36,8 @@ export default defineConfig({
 
             ],
         ],
+        rehypePlugins: [
+            rehypeAutolinkHeadings,
+        ]
     },
 });

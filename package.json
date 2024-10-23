@@ -17,6 +17,7 @@
         "prettier-plugin-astro": "^0.14.1"
     },
     "dependencies": {
+        "rehype-autolink-headings": "^7.1.0",
         "remark-html": "^16.0.1",
         "remark-toc": "^9.0.0",
         "remark-wiki-link": "^2.0.1",
